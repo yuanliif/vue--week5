@@ -1,10 +1,12 @@
 const apiUrl = 'https://vue3-course-api.hexschool.io/v2';
 const apiPath = 'pastelsy';
 
+// 將會使用的方法從veeValidate鐘用解構復職的方式取出，減少檔案大小
 const { defineRule, Form, Field, ErrorMessage, configure } = VeeValidate;
 const { required, email, min, max } = VeeValidateRules;
 const { localize, loadLocaleFromURL } = VeeValidateI18n;
 
+// 名稱是自行定義的('名稱', 取出的內容)
 defineRule('required', required);
 defineRule('email', email);
 defineRule('min', min);
@@ -19,6 +21,7 @@ configure({
 const app = Vue.createApp({
   data () {
     return {
+      // 避免length的時候報錯
       cartData: {
         carts: []
       },
